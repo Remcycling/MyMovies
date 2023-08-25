@@ -13,12 +13,11 @@
         android:layout_height="wrap_content"
         android:text="Movie ID" />
 
-    <EditText
-        android:id="@+id/editTextId"
+    <TextView
+        android:id="@+id/textViewId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text" />
+        android:text="TextView" />
 
     <TextView
         android:id="@+id/textView3"

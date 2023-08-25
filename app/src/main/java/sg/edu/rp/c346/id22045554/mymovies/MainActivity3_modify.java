@@ -12,10 +12,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 public class MainActivity3_modify extends AppCompatActivity {
     Button btnUpdate, btnDelete, btnCancel;
-    EditText etId, etTitle, etYear, etGenre;
+    EditText etTitle, etYear, etGenre;
+    TextView tvId;
     Spinner spnRates;
     Movie data;
 
@@ -26,7 +28,7 @@ public class MainActivity3_modify extends AppCompatActivity {
         btnUpdate = findViewById(R.id.buttonUpdate);
         btnDelete = findViewById(R.id.buttonDelete);
         btnCancel = findViewById(R.id.buttonCancel);
-        etId = findViewById(R.id.editTextId);
+        tvId = findViewById(R.id.textViewId);
         etTitle = findViewById(R.id.editTextTitle2);
         etGenre = findViewById(R.id.editTextGenre2);
         etYear = findViewById(R.id.editTextYear2);
@@ -37,7 +39,7 @@ public class MainActivity3_modify extends AppCompatActivity {
         data = (Movie) i.getSerializableExtra("data");
 
 
-        etId.setHint(""+data.getId());
+        tvId.setText(""+data.getId());
         etTitle.setText(data.getTitle());
         etGenre.setText(data.getGenre());
         etYear.setText(""+data.getYear());
