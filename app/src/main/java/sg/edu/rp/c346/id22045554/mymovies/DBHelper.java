@@ -116,13 +116,13 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-    public ArrayList<Movie> get13movies() {
+    public ArrayList<Movie> getRatesmovies(String rate) {
         ArrayList<Movie> movies = new ArrayList<Movie>();
 
         SQLiteDatabase db = this.getReadableDatabase();
         String[] columns= {COLUMN_ID, COLUMN_TITLE, COLUMN_GENRE, COLUMN_YEAR, COLUMN_RATING};
         String condition = COLUMN_RATING + " = ?";
-        String[] args = {"PG13"};
+        String[] args = {rate};
         Cursor cursor = db.query(TABLE_MOVIE, columns, condition, args,
                 null, null, null, null);
 
@@ -141,4 +141,37 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
         return movies;
     }
+
+    public ArrayList<String> getAllRate() {
+        ArrayList<String> rated = new ArrayList<>();
+        rated.add("All");
+        String selectQuery = "SELECT * FROM " + TABLE_MOVIE;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
+            do {
+                String rate = cursor.getString(4);
+
+
+                boolean isDuplicate = false;
+                for (int i = 0; i < rated.size(); i++) {
+                    if (rated.get(i).equalsIgnoreCase(rate)) {
+                        isDuplicate = true;
+                        break;
+                    }
+                }
+
+                if (!isDuplicate) {
+                    rated.add(rate);
+                }
+
+
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return rated;
+    }
+
+
 }

@@ -6,13 +6,18 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity2_show"
-    android:layout_margin="15dp">
+    android:layout_margin="10dp">
 
     <Button
         android:id="@+id/buttonShow13"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Show all PG13 movies" />
+        android:text="Show all movies with this rating" />
+
+    <Spinner
+        android:id="@+id/spinner3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <ListView
         android:id="@+id/listViewMovies"
