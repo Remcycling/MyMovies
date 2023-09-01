@@ -85,7 +85,7 @@ public class MainActivity2_show extends AppCompatActivity {
         lvMovies.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Movie data = alMovie.get(position);
+                Movie data = alGroup.get(position);
 
                 Intent intent = new Intent(MainActivity2_show.this, MainActivity3_modify.class);
                 intent.putExtra("data", data);
